@@ -1,0 +1,18 @@
+
+
+CREATE COMPUTE MODULE fdfdl_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		DECLARE inref REFERENCE TO InputRoot.DFDL.studentmarks.record;
+		DECLARE outref REFERENCE TO OutputRoot.XMLNSC;
+		WHILE LASTMOVE(inref) DO 
+		
+		CREATE LASTCHILD OF OutputRoot.XMLNSC.Data AS outref NAME 'Student';	
+		SET outref.Name=inref.field1;
+		SET outref.Roll=inref.field2;
+		SET outref.Marks=inref.field3;
+		MOVE inref NEXTSIBLING;
+		
+		END WHILE;
+	END;
+END MODULE;
