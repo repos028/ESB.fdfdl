@@ -1,0 +1,7 @@
+ <Data>
+ <student>
+	<name>Virat</name>
+	<class>8</class>
+	<marks>98</marks>
+  </student>
+</Data>
